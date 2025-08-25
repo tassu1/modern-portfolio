@@ -21,43 +21,42 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
   const textClasses = isDarkMode ? 'text-[#F1F1F1]' : 'text-[#1A1A1A]';
   const subtextClasses = isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]';
 
-
   // Projects data
   const projects = [
     {
       title: "InnerLight",
       description: "A fullstack mental wellness platform designed to support mental health through AI therapy, journaling, self-help resources, and wellness tracking. Built with modular architecture and secure data management.",
-      tags: ["MERN", "Cloudinary", "JWT Auth", "Modular Backend"],
-      image: "/api/placeholder/600/400",
-      liveUrl: "#",
-      githubUrl: "#",
+      tags: ["MERN","AI" ,"Cloudinary", "JWT Auth", "Modular Backend"],
+      image: "innerlight.png",
+      liveUrl: "https://innerlightai.vercel.app/",
+      githubUrl: "https://github.com/tassu1/innerlight",
       featured: true
     },
     {
-      title: "CodeSnip",
+      title: "DevSnip",
       description: "A simple, minimal, and fast code snippet manager for developers to organize, filter, and retrieve their code instantly. Designed with a focus on productivity and clean user experience.",
       tags: ["MERN", "TypeScript", "React", "Tailwind"],
-      image: "/api/placeholder/600/400",
-      liveUrl: "#",
-      githubUrl: "#",
+      image: "devsnip.png",
+      liveUrl: "https://devsnipa.vercel.app/",
+      githubUrl: "https://github.com/tassu1/devsnip",
       featured: true
     },
     {
-      title: "TheraEase",
+      title: "TherapEase",
       description: "A responsive landing page built for a therapy and wellness platform. Designed with accessibility and clean UI in mind, featuring smooth animations and modern design principles.",
       tags: ["React", "Tailwind", "Framer Motion", "Responsive"],
-      image: "/api/placeholder/600/400",
-      liveUrl: "#",
-      githubUrl: "#",
+      image: "therapease.png",
+      liveUrl: "https://therapease-landing-page.vercel.app/",
+      githubUrl: "https://github.com/tassu1/therapease-landing-page",
       featured: false
     },
     {
       title: "SmartCall",
       description: "A video conferencing application offering real-time video/audio calls, chat, and meeting scheduling. Built with WebRTC technology for seamless communication experiences.",
       tags: ["WebRTC", "Node.js", "Socket.io", "React"],
-      image: "/api/placeholder/600/400",
+      image: "smartcall.png",
       liveUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/tassu1/Smartcall",
       featured: false
     }
   ];
@@ -86,7 +85,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
             Projects
           </h2>
           <p className={`${subtextClasses} text-lg sm:text-xl max-w-2xl mx-auto`}>
-            A showcase of apps I've built — blending innovation with impact.
+            A showcase of apps I've built blending innovation with impact.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-[#D72638] to-[#9B2226] mx-auto rounded-full mt-6"></div>
         </div>
@@ -102,7 +101,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
             >
               <div className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 sm:gap-8 items-center`}>
                 
-                {/* Project Image - Improved for mobile */}
+                {/* Project Image - Fixed to fill container */}
                 <div className="w-full lg:w-1/2">
                   <div className="relative group">
                     {/* Mobile-friendly laptop mockup */}
@@ -115,27 +114,16 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
                             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
                           </div>
                         </div>
-                        <div className="bg-gradient-to-br from-gray-800 to-gray-900 h-48 sm:h-64 md:h-80 rounded-b-lg overflow-hidden">
-                          <div className="w-full h-full bg-gradient-to-br from-[#D72638]/20 to-[#9B2226]/20 flex items-center justify-center">
-                            <span className="text-white text-sm sm:text-base font-semibold">Project Preview</span>
-                          </div>
+                        {/* Changed container to have flexible height and proper image display */}
+                        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-b-lg overflow-hidden relative aspect-video">
+                          <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Hover overlay */}
-                   <div className="absolute inset-0 bg-gradient-to-br from-[#D72638]/30 to-[#9B2226]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
-                      <div className="flex space-x-4">
-                        <a href={project.liveUrl} className={`p-3 rounded-full ${isDarkMode ? 'bg-[#1A1A1A]' : 'bg-white'} text-${isDarkMode ? 'white' : '[#1A1A1A]'} transition-transform duration-300 hover:scale-110`}>
-                          <ExternalLink size={20} />
-                        </a>
-                        <a href={project.githubUrl} className={`p-3 rounded-full ${isDarkMode ? 'bg-[#1A1A1A]' : 'bg-white'} text-${isDarkMode ? 'white' : '[#1A1A1A]'} transition-transform duration-300 hover:scale-110`}>
-                          <Github size={20} />
-                        </a>
-                      </div>
-                    </div>
-                  
-
                   </div>
                 </div>
 
@@ -196,7 +184,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
             Want to see more of my work?
           </p>
           <a 
-            href="https://github.com/Tahseen-Alam" 
+            href="https://github.com/tassu1" 
             target="_blank" 
             rel="noopener noreferrer"
             className={`inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-gradient-to-r from-[#D72638] to-[#9B2226] text-white text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg`}
