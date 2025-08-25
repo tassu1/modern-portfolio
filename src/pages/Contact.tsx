@@ -29,40 +29,40 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode = false }) => {
     {
       name: "Email",
       icon: <Mail size={24} />,
-      value: "tahseen@example.com",
-      link: "mailto:tahseen@example.com",
+      value: "tassutahsee@gmail.com",
+      link: "mailto:tassutahsee@gmail.com",
       color: "from-blue-500 to-blue-600",
       description: "Send me an email directly"
     },
     {
       name: "LinkedIn",
       icon: <Linkedin size={24} />,
-      value: "tahseen-alam",
-      link: "https://linkedin.com/in/tahseen-alam",
+      value: "Linkedin",
+      link: "https://www.linkedin.com/in/md-tahseen-alam-892317263/",
       color: "from-blue-600 to-blue-700",
       description: "Connect professionally"
     },
     {
       name: "GitHub",
       icon: <Github size={24} />,
-      value: "Tahseen-Alam",
-      link: "https://github.com/Tahseen-Alam",
+      value: "Github",
+      link: "https://github.com/tassu1",
       color: "from-gray-700 to-gray-800",
       description: "View my projects"
     },
     {
       name: "LeetCode",
       icon: <Code size={24} />,
-      value: "tahseen_alam",
-      link: "https://leetcode.com/u/tahseen_alam/",
+      value: "Leetcode",
+      link: "https://leetcode.com/u/tahseen_/",
       color: "from-amber-500 to-amber-600",
       description: "Check my coding solutions"
     },
     {
       name: "WhatsApp",
       icon: <MessageCircle size={24} />,
-      value: "+91 XXXXX XXXXX",
-      link: "https://wa.me/91XXXXXXXXXX",
+      value: "+91 9117391745",
+      link: "https://wa.me/919117391745",
       color: "from-green-500 to-green-600",
       description: "Message me directly"
     }
