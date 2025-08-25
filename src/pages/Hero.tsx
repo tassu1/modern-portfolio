@@ -11,11 +11,12 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
   const [currentTagline, setCurrentTagline] = useState<number>(0);
 
   const taglines: string[] = [
-    "Fullstack Developer",
-    "AI Enthusiast",
-    "Problem Solver",
-    "Creative Coder"
-  ];
+  "Fullstack Developer",
+  "Product Builder",
+  "Problem Solver",
+  "Turning Ideas into Reality"
+];
+
 
   // Animation trigger
   useEffect(() => {
@@ -34,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
   }, [taglines.length]);
 
   const handleViewGithub = (): void => {
-    window.open('https://github.com/Tahseen-Alam', '_blank');
+    window.open('https://github.com/tassu1', '_blank');
   };
 
   const handleContact = (): void => {
@@ -114,7 +115,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
           <div className={`transform transition-all duration-1000 ease-out delay-300 mb-8 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}>
-            <div className="h-14 sm:h-16 md:h-20 overflow-hidden flex justify-center mb-4">
+            <div className="h-14 sm:h-16 md:h-20 overflow-hidden flex justify-center mb-3">
               {taglines.map((tagline, index) => (
                 <h2 
                   key={index}
@@ -136,13 +137,21 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
           </div>
 
           {/* Description */}
-          <div className={`transform transition-all duration-1000 ease-out delay-500 mb-10 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}>
-            <p className={`text-lg sm:text-xl font-medium ${subtextClasses} leading-relaxed max-w-2xl mx-4`}>
-              A passionate developer building <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#D72638] to-[#9B2226]">innovative digital solutions</span> that blend cutting-edge technology with intuitive design. Currently completing my final year in Computer Science while working on real-world projects.
-            </p>
-          </div>
+         <div
+  className={`transform transition-all duration-1000 ease-out delay-500 mb-10 ${
+    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+  }`}
+>
+  <p
+    className={`text-lg sm:text-xl font-medium ${subtextClasses} leading-relaxed max-w-2xl mx-4`}
+  >
+    I’m curious by nature and love exploring new technologies. 
+    My focus is on turning ideas into 
+    <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#D72638] to-[#9B2226]">practical solutions </span> 
+    that are simple, reliable, and meaningful.
+  </p>
+</div>
+
 
           {/* CTA Buttons */}
           <div className={`transform transition-all duration-1000 ease-out delay-700 ${
