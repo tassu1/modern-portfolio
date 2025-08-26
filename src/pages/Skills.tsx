@@ -51,8 +51,8 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode = false }) => {
       icon: "🖥️",
       skills: [
         { name: "React", icon: <FaReact className="text-[#61DAFB]" size={24} />, level: "Proficient" },
-        { name: "Next.js", icon: <SiNextdotjs size={24} />, level: "Proficient" },
-        { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" size={24} />, level: "Proficient" },
+        { name: "Next.js", icon: <SiNextdotjs size={24} />, level: "Intermediate" },
+        { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" size={24} />, level: "Intermediate" },
         { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" size={24} />, level: "Proficient" },
         { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" size={24} />, level: "Proficient" },
         { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" size={24} />, level: "Proficient" },
@@ -71,7 +71,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode = false }) => {
         { name: "GitHub", icon: <FaGithub size={24} />, level: "Proficient" },
         { name: "Docker", icon: <FaDocker className="text-[#2496ED]" size={24} />, level: "Intermediate" },
         { name: "AWS", icon: <FaAws className="text-[#FF9900]" size={24} />, level: "Learning" },
-        { name: "Vercel", icon: <SiVercel size={24} />, level: "Proficient" }
+        { name: "Vercel", icon: <SiVercel size={24} />, level: "Intermediate" }
       ]
     },
     {
