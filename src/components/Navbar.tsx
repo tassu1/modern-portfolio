@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({
     {
       label: "View Resume",
       icon: <Eye size={16} />,
-      action: () => window.open("/newResume.pdf", "_blank"),
+      action: () => window.open("/Resume.pdf", "_blank"),
       description: "Open in browser"
     },
     {
@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({
       icon: <Download size={16} />,
       action: () => {
         const link = document.createElement('a');
-        link.href = "/newResume.pdf";
+        link.href = "/Resume.pdf";
         link.download = "Tahseen_Resume.pdf";
         link.click();
       },
