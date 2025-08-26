@@ -24,10 +24,10 @@ const Navbar: React.FC<NavbarProps> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navItems: NavItem[] = [
-    { id: 'home', label: 'Home', href: '#home' },
-    { id: 'skills', label: 'Skills', href: '#skills' },
-    { id: 'projects', label: 'Work', href: '#projects' },
-    { id: 'contact', label: 'Contact', href: '#contact' },
+    { id: 'home', label: 'Home', href: '/home' },
+    { id: 'skills', label: 'Skills', href: '/skills' },
+    { id: 'projects', label: 'Work', href: '/projects' },
+    { id: 'contact', label: 'Contact', href: '/contact' },
   ];
 
   // Resume options
@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({
     {
       label: "View Resume",
       icon: <Eye size={16} />,
-      action: () => window.open("/resume.pdf", "_blank"),
+      action: () => window.open("/newResume.pdf", "_blank"),
       description: "Open in browser"
     },
     {
@@ -43,8 +43,8 @@ const Navbar: React.FC<NavbarProps> = ({
       icon: <Download size={16} />,
       action: () => {
         const link = document.createElement('a');
-        link.href = "/resume.pdf";
-        link.download = "Tahseen_Alam_Resume.pdf";
+        link.href = "/newResume.pdf";
+        link.download = "Tahseen_Resume.pdf";
         link.click();
       },
       description: "Save to device"
@@ -92,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
     if (isMenuOpen || isResumeDropdownOpen) {
       document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden'; // Prevent scroll when menu is open
+      document.body.style.overflow = 'hidden'; 
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -239,29 +239,8 @@ const Navbar: React.FC<NavbarProps> = ({
                 </button>
               ))}
               
-              {/* Mobile Resume Options */}
-              <div className="border-t pt-2 mt-2">
-                <div className={`px-4 py-2 text-sm font-medium ${
-                  isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]'
-                }`}>
-                  Resume Options
-                </div>
-                {resumeOptions.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      option.action();
-                      setIsMenuOpen(false);
-                    }}
-                    className={`block w-full text-left px-4 py-3 text-base font-medium transition-all duration-200 rounded-md ${hoverClasses}`}
-                  >
-                    <div className="flex items-center gap-2">
-                      {option.icon}
-                      {option.label}
-                    </div>
-                  </button>
-                ))}
-              </div>
+              
+              
             </div>
           </div>
         )}
