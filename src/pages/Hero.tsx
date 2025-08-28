@@ -147,7 +147,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
   >
     I’m curious by nature and love exploring new technologies. 
     My focus is on turning ideas into 
-    <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#D72638] to-[#9B2226]">practical solutions </span> 
+    <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#D72638] to-[#9B2226]"> practical solutions </span> 
     that are simple, reliable, and meaningful.
   </p>
 </div>
