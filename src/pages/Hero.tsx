@@ -13,7 +13,6 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
   const taglines: string[] = [
   "Fullstack Developer",
   "Product Builder",
-  "Problem Solver",
   "Turning Ideas into Reality"
 ];
 

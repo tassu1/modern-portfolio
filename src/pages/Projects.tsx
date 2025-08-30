@@ -35,7 +35,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
     {
       title: "DevSnip",
       description: "A simple, minimal, and fast code snippet manager for developers to organize, filter, and retrieve their code instantly. Designed with a focus on productivity and clean user experience.",
-      tags: ["MERN", "TypeScript", "React", "Tailwind"],
+      tags: ["MERN", "JavaScript", "React", "Tailwind"],
       image: "devsnip.png",
       liveUrl: "https://devsnipa.vercel.app/",
       githubUrl: "https://github.com/tassu1/devsnip",
