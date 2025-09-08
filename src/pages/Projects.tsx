@@ -23,61 +23,61 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
 
   // Projects data
   const projects = [
-    {
-      title: "InnerLight",
-      description: "A fullstack mental wellness platform designed to support mental health through AI therapy, journaling, self-help resources, and wellness tracking. Built with modular architecture and secure data management.",
-      tags: ["MERN","AI" ,"Cloudinary", "JWT Auth", "Modular Backend"],
-      image: "innerlight.png",
-      liveUrl: "https://innerlightai.vercel.app/",
-      githubUrl: "https://github.com/tassu1/innerlight",
-      featured: true
-    },
-    {
-      title: "DevSnip",
-      description: "A simple, minimal, and fast code snippet manager for developers to organize, filter, and retrieve their code instantly. Designed with a focus on productivity and clean user experience.",
-      tags: ["MERN", "JavaScript", "React", "Tailwind"],
-      image: "devsnip.png",
-      liveUrl: "https://devsnipa.vercel.app/",
-      githubUrl: "https://github.com/tassu1/devsnip",
-      featured: true
-    },
-    {
-      title: "TherapEase",
-      description: "A responsive landing page built for a therapy and wellness platform. Designed with accessibility and clean UI in mind, featuring smooth animations and modern design principles.",
-      tags: ["React", "Tailwind", "Framer Motion", "Responsive"],
-      image: "therapease.png",
-      liveUrl: "https://therapease-landing-page.vercel.app/",
-      githubUrl: "https://github.com/tassu1/therapease-landing-page",
-      featured: false
-    },
-    {
-      title: "SmartCall",
-      description: "A video conferencing application offering real-time video/audio calls, chat, and meeting scheduling. Built with WebRTC technology for seamless communication experiences.",
-      tags: ["WebRTC", "Node.js", "Socket.io", "React"],
-      image: "smartcall.png",
-      liveUrl: "#",
-      githubUrl: "https://github.com/tassu1/Smartcall",
-      featured: false
-    }
-  ];
+  {
+    title: "Lexica AI",
+    description: "An AI-powered report generator that transforms raw ideas into polished, structured documents like business pitches, academic synopses, market analyses, and more. Features include enhancing prompts for smarter results and exporting as PDF or DOCX.",
+    tags: ["Next.js", "TypeScript", "OpenAI API", "AI Prompt Enhancement", "PDF & DOCX Export"],
+    image: "lexicaai.jpg",
+    liveUrl: "https://lexicaai.vercel.app/",
+    githubUrl: "https://github.com/tassu1/QuickPitch",
+    featured: true
+  },
+  {
+    title: "InnerLight",
+    description: "A fullstack mental wellness platform designed to support mental health through AI therapy, journaling, self-help resources, and wellness tracking. Built with modular architecture and secure data management.",
+    tags: ["MERN", "AI", "Cloudinary", "JWT Auth", "Modular Backend"],
+    image: "innerlight.png",
+    liveUrl: "https://innerlightai.vercel.app/",
+    githubUrl: "https://github.com/tassu1/innerlight",
+    featured: true
+  },
+  {
+    title: "DevSnip",
+    description: "A simple, minimal, and fast code snippet manager for developers to organize, filter, and retrieve their code instantly. Designed with a focus on productivity and clean user experience.",
+    tags: ["MERN", "JavaScript", "React", "Tailwind"],
+    image: "devsnip.png",
+    liveUrl: "https://devsnipa.vercel.app/",
+    githubUrl: "https://github.com/tassu1/devsnip",
+    featured: true
+  },
+  {
+    title: "SmartCall",
+    description: "A video conferencing application offering real-time video/audio calls, chat, and meeting scheduling. Built with WebRTC technology for seamless communication experiences.",
+    tags: ["WebRTC", "Node.js", "Socket.io", "React"],
+    image: "smartcall.png",
+    liveUrl: "#",
+    githubUrl: "https://github.com/tassu1/Smartcall",
+    featured: false
+  }
+];
+
 
   return (
     <section id="projects" className={`py-16 ${bgClasses} relative w-full overflow-hidden`}>
       
-      {/* Background elements matching the hero section */}
+    
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated gradient orbs */}
+ 
         <div className="absolute top-1/4 -right-10 w-80 h-80 bg-gradient-to-br from-[#9B2226] to-[#D72638] rounded-full opacity-10 blur-3xl animate-orb-float-1" />
         <div className="absolute bottom-1/4 -left-10 w-96 h-96 bg-gradient-to-br from-[#10B981] to-[#047857] rounded-full opacity-10 blur-3xl animate-orb-float-2" />
-        
-        {/* Geometric shapes */}
+      
         <div className={`absolute top-20 left-20 w-40 h-40 border-2 ${isDarkMode ? 'border-[#9B2226]' : 'border-[#D72638]'} opacity-10 rotate-45`} />
         <div className={`absolute bottom-20 right-20 w-32 h-32 border-2 ${isDarkMode ? 'border-[#10B981]' : 'border-[#10B981]'} opacity-10 rotate-12`} />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
+       
         <div className={`text-center mb-12 transform transition-all duration-1000 ease-out ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
@@ -90,7 +90,6 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
           <div className="w-24 h-1 bg-gradient-to-r from-[#D72638] to-[#9B2226] mx-auto rounded-full mt-6"></div>
         </div>
 
-        {/* Projects Grid - Improved for mobile */}
         <div className="space-y-16 sm:space-y-20">
           {projects.map((project, index) => (
             <div 
@@ -104,7 +103,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
                 {/* Project Image - Fixed to fill container */}
                 <div className="w-full lg:w-1/2">
                   <div className="relative group">
-                    {/* Mobile-friendly laptop mockup */}
+                  
                     <div className="relative mx-auto max-w-md">
                       <div className="bg-gray-800 rounded-lg p-1.5 sm:p-2 shadow-xl">
                         <div className="bg-gray-900 rounded-t-lg p-1">
@@ -114,7 +113,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
                             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
                           </div>
                         </div>
-                        {/* Changed container to have flexible height and proper image display */}
+                
                         <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-b-lg overflow-hidden relative aspect-video">
                           <img 
                             src={project.image} 
@@ -127,7 +126,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
                   </div>
                 </div>
 
-                {/* Project Content - Improved for mobile */}
+                {/* Project Content mobile */}
                 <div className="w-full lg:w-1/2">
                   {project.featured && (
                     <span className={`inline-block px-3 py-1 text-xs sm:text-sm rounded-full ${isDarkMode ? 'bg-[#D72638]/20 text-[#D72638]' : 'bg-[#D72638]/10 text-[#9B2226]'} mb-3 sm:mb-4`}>
@@ -195,7 +194,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
         </div>
       </div>
 
-      {/* Add custom animations to match hero section */}
+ 
       <style>
         {`
           @keyframes orb-float-1 {

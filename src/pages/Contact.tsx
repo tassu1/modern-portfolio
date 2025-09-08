@@ -8,7 +8,6 @@ interface ContactProps {
 const Contact: React.FC<ContactProps> = ({ isDarkMode = false }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
-  // Animation trigger
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -16,7 +15,7 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode = false }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Color scheme matching the hero section exactly
+  // Color scheme
   const bgClasses = isDarkMode ? 'bg-[#0A0A0A]' : 'bg-[#FAFAFA]';
   const textClasses = isDarkMode ? 'text-[#F1F1F1]' : 'text-[#1A1A1A]';
   const subtextClasses = isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]';
@@ -71,9 +70,9 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode = false }) => {
   return (
     <section id="contact" className={`py-16 ${bgClasses} relative w-full overflow-hidden`}>
       
-      {/* Background elements matching the hero section */}
+     
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated gradient orbs */}
+  
         <div className="absolute top-1/4 -left-10 w-96 h-96 bg-gradient-to-br from-[#9B2226] to-[#D72638] rounded-full opacity-10 blur-3xl animate-orb-float-1" />
         <div className="absolute bottom-1/4 -right-10 w-80 h-80 bg-gradient-to-br from-[#10B981] to-[#047857] rounded-full opacity-10 blur-3xl animate-orb-float-2" />
         
@@ -150,7 +149,7 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode = false }) => {
         </div>
       </div>
 
-      {/* Add custom animations to match hero section */}
+     
       <style>
         {`
           @keyframes orb-float-1 {

@@ -17,7 +17,6 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
 ];
 
 
-  // Animation trigger
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -25,7 +24,6 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Rotating taglines with crossfade
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTagline((prev) => (prev + 1) % taglines.length);
@@ -44,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
     }
   };
 
-  // Updated Minimal & Elegant color scheme
+  //  color scheme
   const bgClasses = isDarkMode ? 'bg-[#0A0A0A]' : 'bg-[#FAFAFA]';
   const textClasses = isDarkMode ? 'text-[#F1F1F1]' : 'text-[#1A1A1A]';
   const subtextClasses = isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]';
@@ -60,9 +58,9 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
   return (
     <section id="home" className={`min-h-screen flex items-center justify-center pt-16 ${bgClasses} ${className} relative overflow-hidden`}>
       
-      {/* Premium background with depth */}
+    
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated gradient orbs */}
+       
         <div className="absolute top-1/4 -left-10 w-96 h-96 bg-gradient-to-br from-[#9B2226] to-[#D72638] rounded-full opacity-10 blur-3xl animate-orb-float-1" />
         <div className="absolute bottom-1/4 -right-10 w-80 h-80 bg-gradient-to-br from-[#10B981] to-[#047857] rounded-full opacity-10 blur-3xl animate-orb-float-2" />
         
@@ -80,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="flex flex-col items-center text-center">
           
-          {/* Intro Line */}
+         
           <div className={`transform transition-all duration-1000 ease-out ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}>
@@ -180,7 +178,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
         </div>
       </div>
 
-      {/* Add custom animations to tailwind config */}
+  
       <style>
         {`
           @keyframes gradient {

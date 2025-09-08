@@ -7,7 +7,6 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ isDarkMode = false }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
-  // Animation trigger
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -15,7 +14,7 @@ const About: React.FC<AboutProps> = ({ isDarkMode = false }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Color scheme matching the hero section exactly
+  // Color scheme 
   const bgClasses = isDarkMode ? 'bg-[#0A0A0A]' : 'bg-[#FAFAFA]';
   const textClasses = isDarkMode ? 'text-[#F1F1F1]' : 'text-[#1A1A1A]';
   const subtextClasses = isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]';
@@ -24,9 +23,9 @@ const About: React.FC<AboutProps> = ({ isDarkMode = false }) => {
   return (
     <section id="about" className={`min-h-screen flex items-center justify-center py-16 ${bgClasses} relative overflow-hidden`}>
       
-      {/* Matching background elements from hero */}
+ 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated gradient orbs */}
+    
         <div className="absolute top-1/4 -left-10 w-96 h-96 bg-gradient-to-br from-[#9B2226] to-[#D72638] rounded-full opacity-10 blur-3xl animate-orb-float-1" />
         <div className="absolute bottom-1/4 -right-10 w-80 h-80 bg-gradient-to-br from-[#10B981] to-[#047857] rounded-full opacity-10 blur-3xl animate-orb-float-2" />
         
@@ -34,7 +33,7 @@ const About: React.FC<AboutProps> = ({ isDarkMode = false }) => {
         <div className={`absolute top-20 right-20 w-40 h-40 border-2 ${isDarkMode ? 'border-[#9B2226]' : 'border-[#D72638]'} opacity-10 rotate-45`} />
         <div className={`absolute bottom-20 left-20 w-32 h-32 border-2 ${isDarkMode ? 'border-[#10B981]' : 'border-[#10B981]'} opacity-10 rotate-12`} />
         
-        {/* Animated connecting lines */}
+       
         <svg className="absolute inset-0 w-full h-full opacity-20" preserveAspectRatio="none">
           <line x1="20%" y1="80%" x2="40%" y2="30%" stroke={isDarkMode ? "#9B2226" : "#D72638"} strokeWidth="1" className="animate-line-draw" />
           <line x1="70%" y1="20%" x2="90%" y2="60%" stroke={isDarkMode ? "#10B981" : "#10B981"} strokeWidth="1" className="animate-line-draw-2" />
@@ -53,12 +52,12 @@ const About: React.FC<AboutProps> = ({ isDarkMode = false }) => {
           <div className="w-24 h-1 bg-gradient-to-r from-[#D72638] to-[#9B2226] mx-auto rounded-full"></div>
         </div>
 
-        {/* Main Content - Full width with flowing text */}
+     
         <div className={`w-full max-w-none transform transition-all duration-1000 ease-out delay-300 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           
-          {/* Flowing paragraph without breaks */}
+          
           <div className={`mb-8 transform transition-all duration-700 ease-out delay-400 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
           }`}>
@@ -76,7 +75,7 @@ const About: React.FC<AboutProps> = ({ isDarkMode = false }) => {
             </p>
           </div>
 
-          {/* Philosophy section with subtle emphasis */}
+        
           <div className={`mb-8 p-6 border-l-4 ${isDarkMode ? 'border-[#D72638]' : 'border-[#D72638]'} bg-gradient-to-r ${isDarkMode ? 'from-[#1A1A1A]' : 'from-[#F7F7F7]'} transform transition-all duration-700 ease-out delay-600 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
           }`}>
@@ -96,7 +95,7 @@ const About: React.FC<AboutProps> = ({ isDarkMode = false }) => {
         </div>
       </div>
 
-      {/* Add custom animations to match hero section */}
+      
       <style>
         {`
           @keyframes line-draw {
