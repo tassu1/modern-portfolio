@@ -26,7 +26,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
   {
     title: "Lexica AI",
     description: "An AI-powered report generator that transforms raw ideas into polished, structured documents like business pitches, academic synopses, market analyses, and more. Features include enhancing prompts for smarter results and exporting as PDF or DOCX.",
-    tags: ["Next.js", "TypeScript", "OpenAI API", "AI Prompt Enhancement", "PDF & DOCX Export"],
+    tags: ["Next.js", "TypeScript", "OpenRouter API", "AI Prompt Enhancement", "PDF & DOCX Export"],
     image: "lexicaai.jpg",
     liveUrl: "https://lexicaai.vercel.app/",
     githubUrl: "https://github.com/tassu1/QuickPitch",
