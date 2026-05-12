@@ -24,10 +24,10 @@ const Navbar: React.FC<NavbarProps> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navItems: NavItem[] = [
-    { id: 'home', label: 'Home', href: '/home' },
-    { id: 'skills', label: 'Skills', href: '/skills' },
-    { id: 'projects', label: 'Work', href: '/projects' },
-    { id: 'contact', label: 'Contact', href: '/contact' },
+    { id: 'home', label: 'Home', href: '#home' },
+    { id: 'skills', label: 'Skills', href: '#skills' },
+    { id: 'projects', label: 'Work', href: '#projects' },
+    { id: 'contact', label: 'Contact', href: '#contact' },
   ];
 
   // Resume options
