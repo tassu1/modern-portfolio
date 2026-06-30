@@ -22,19 +22,28 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
   const subtextClasses = isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]';
 
   // Projects data
-  const projects = [
+ const projects = [
+  {
+    title: "EduManage",
+    description: "A comprehensive multi-tenant School Management Platform supporting 5 user roles with role-based dashboards and complete data isolation across schools. Features include attendance tracking, examination management, report card generation, AI-powered performance analytics with personalized learning recommendations, a 24/7 AI tutor chatbot, and real-time WebSocket communication between students, teachers, and parents.",
+    tags: ["MERN", "Socket.io", "OpenRouter AI", "JWT", "RBAC", "MongoDB"],
+    image: "edumanage.png",
+    liveUrl: "https://edumanageai.vercel.app/",
+    githubUrl: "https://github.com/tassu1/edumanage",
+    featured: true
+  },
   {
     title: "Lexica AI",
     description: "An AI-powered report generator that transforms raw ideas into polished, structured documents like business pitches, academic synopses, market analyses, and more. Features include enhancing prompts for smarter results and exporting as PDF or DOCX.",
     tags: ["Next.js", "TypeScript", "OpenRouter API", "AI Prompt Enhancement", "PDF & DOCX Export"],
     image: "lexicaai.jpg",
     liveUrl: "https://lexicaai.vercel.app/",
-    githubUrl: "https://github.com/tassu1/QuickPitch",
+    githubUrl: "https://github.com/tassu1/Lexica",
     featured: true
   },
   {
     title: "InnerLight",
-    description: "A fullstack mental wellness platform designed to support mental health through AI therapy, journaling, self-help resources, and wellness tracking. Built with modular architecture and secure data management.",
+    description: "A fullstack mental wellness platform designed to support mental health through AI-powered conversational support, journaling, self-help resources, and wellness tracking. Built with modular architecture and secure data management.",
     tags: ["MERN", "AI", "Cloudinary", "JWT Auth", "Modular Backend"],
     image: "innerlight.png",
     liveUrl: "https://innerlightai.vercel.app/",
@@ -49,18 +58,8 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
     liveUrl: "https://devsnipa.vercel.app/",
     githubUrl: "https://github.com/tassu1/devsnip",
     featured: true
-  },
-  {
-    title: "SmartCall",
-    description: "A video conferencing application offering real-time video/audio calls, chat, and meeting scheduling. Built with WebRTC technology for seamless communication experiences.",
-    tags: ["WebRTC", "Node.js", "Socket.io", "React"],
-    image: "smartcall.png",
-    liveUrl: "#",
-    githubUrl: "https://github.com/tassu1/Smartcall",
-    featured: false
   }
 ];
-
 
   return (
     <section id="projects" className={`py-16 ${bgClasses} relative w-full overflow-hidden`}>
