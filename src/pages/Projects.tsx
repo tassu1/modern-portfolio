@@ -25,35 +25,69 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
  const projects = [
   {
     title: "EduManage",
-    description: "A comprehensive multi-tenant School Management Platform supporting 5 user roles with role-based dashboards and complete data isolation across schools. Features include attendance tracking, examination management, report card generation, AI-powered performance analytics with personalized learning recommendations, a 24/7 AI tutor chatbot, and real-time WebSocket communication between students, teachers, and parents.",
-    tags: ["MERN", "Socket.io", "OpenRouter AI", "JWT", "RBAC", "MongoDB"],
+    description:
+      "A multi-tenant school management platform built for 5 user roles with isolated school data, role-based dashboards, and real-time communication. Includes attendance and exam management, automated report cards, AI-powered performance insights with personalized learning recommendations, and an AI tutor chatbot.",
+    tags: [
+      "MERN",
+      "Multi-Tenancy",
+      "RBAC",
+      "Socket.io",
+      "OpenRouter AI",
+      "JWT"
+    ],
     image: "edumanage.png",
     liveUrl: "https://edumanageai.vercel.app/",
     githubUrl: "https://github.com/tassu1/edumanage",
     featured: true
   },
+
   {
     title: "Lexica AI",
-    description: "An AI-powered report generator that transforms raw ideas into polished, structured documents like business pitches, academic synopses, market analyses, and more. Features include enhancing prompts for smarter results and exporting as PDF or DOCX.",
-    tags: ["Next.js", "TypeScript", "OpenRouter API", "AI Prompt Enhancement", "PDF & DOCX Export"],
+    description:
+      "An AI-powered document generation platform that transforms ideas into structured business, academic, and professional documents. Includes AI prompt enhancement, multiple document formats, Google authentication, and PDF/DOCX export.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "OpenRouter AI",
+      "NextAuth",
+      "AI Generation",
+      "PDF/DOCX"
+    ],
     image: "lexicaai.jpg",
     liveUrl: "https://lexicaai.vercel.app/",
     githubUrl: "https://github.com/tassu1/Lexica",
     featured: true
   },
+
   {
     title: "InnerLight",
-    description: "A fullstack mental wellness platform designed to support mental health through AI-powered conversational support, journaling, self-help resources, and wellness tracking. Built with modular architecture and secure data management.",
-    tags: ["MERN", "AI", "Cloudinary", "JWT Auth", "Modular Backend"],
+    description:
+      "An AI-powered wellness and self-reflection platform combining mood tracking, journaling, self-help resources, and conversational AI. Built with a modular backend and secure user authentication for personalized experiences.",
+    tags: [
+      "MERN",
+      "AI",
+      "JWT",
+      "Cloudinary",
+      "REST API",
+      "Modular Backend"
+    ],
     image: "innerlight.png",
     liveUrl: "https://innerlightai.vercel.app/",
     githubUrl: "https://github.com/tassu1/innerlight",
     featured: true
   },
+
   {
     title: "DevSnip",
-    description: "A simple, minimal, and fast code snippet manager for developers to organize, filter, and retrieve their code instantly. Designed with a focus on productivity and clean user experience.",
-    tags: ["MERN", "JavaScript", "React", "Tailwind"],
+    description:
+      "A developer-focused code snippet manager for saving, organizing, filtering, and instantly reusing frequently used code. Features authenticated snippet management with a clean, productivity-focused interface.",
+    tags: [
+      "MERN",
+      "JWT",
+      "MongoDB",
+      "REST API",
+      "Tailwind CSS"
+    ],
     image: "devsnip.png",
     liveUrl: "https://devsnipa.vercel.app/",
     githubUrl: "https://github.com/tassu1/devsnip",
