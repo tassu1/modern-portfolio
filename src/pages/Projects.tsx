@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Layers, Zap, Users } from 'lucide-react';
 
 interface ProjectsProps {
   isDarkMode?: boolean;
@@ -21,77 +21,77 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
   const textClasses = isDarkMode ? 'text-[#F1F1F1]' : 'text-[#1A1A1A]';
   const subtextClasses = isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]';
 
-  // Projects data
+  // Projects data — backend-heavy systems first, matches resume
  const projects = [
   {
     title: "EduManage",
     description:
-      "A multi-tenant school management platform built for 5 user roles with isolated school data, role-based dashboards, and real-time communication. Includes attendance and exam management, automated report cards, AI-powered performance insights with personalized learning recommendations, and an AI tutor chatbot.",
-    tags: [
-      "MERN",
-      "Multi-Tenancy",
-      "RBAC",
-      "Socket.io",
-      "OpenRouter AI",
-      "JWT"
+      "A multi-tenant school management platform with 5 role-specific dashboards, school-level data isolation, and a modular REST API backend covering attendance, exams, timetables, and messaging.",
+    tags: ["MERN", "Multi-Tenancy", "RBAC", "Socket.io", "OpenRouter AI", "JWT"],
+    highlights: [
+      { icon: <Users size={14} />, label: "5 roles · 35+ demo accounts" },
+      { icon: <Layers size={14} />, label: "10+ MongoDB data models" }
     ],
     image: "edumanage.png",
     liveUrl: "https://edumanageai.vercel.app/",
     githubUrl: "https://github.com/tassu1/edumanage",
     featured: true
   },
-
+  {
+    title: "MockMate",
+    description:
+      "An AI mock-interview platform where an LLM asks resume-grounded questions by role and experience level, streaming replies over SSE and generating structured reports via a background job queue.",
+    tags: ["MERN", "BullMQ", "Redis", "OpenRouter AI", "SSE", "JWT"],
+    highlights: [
+      { icon: <Zap size={14} />, label: "Auto-retry job queue (3x backoff)" },
+      { icon: <Layers size={14} />, label: "Separate API + worker services" }
+    ],
+    image: "mockmate.png",
+    liveUrl: "",
+    githubUrl: "https://github.com/tassu1/mockmate",
+    featured: true
+  },
   {
     title: "Lexica AI",
     description:
-      "An AI-powered document generation platform that transforms ideas into structured business, academic, and professional documents. Includes AI prompt enhancement, multiple document formats, Google authentication, and PDF/DOCX export.",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "OpenRouter AI",
-      "NextAuth",
-      "AI Generation",
-      "PDF/DOCX"
+      "An AI-powered document generation platform that turns ideas into structured business, academic, and professional documents, with AI prompt enhancement and PDF/DOCX export.",
+    tags: ["Next.js", "TypeScript", "OpenRouter AI", "NextAuth", "PDF/DOCX"],
+    highlights: [
+      { icon: <Zap size={14} />, label: "AI prompt enhancement" },
+      { icon: <Layers size={14} />, label: "Multi-format document export" }
     ],
     image: "lexicaai.jpg",
     liveUrl: "https://lexicaai.vercel.app/",
     githubUrl: "https://github.com/tassu1/Lexica",
     featured: true
   },
-
   {
     title: "InnerLight",
     description:
-      "An AI-powered wellness and self-reflection platform combining mood tracking, journaling, self-help resources, and conversational AI. Built with a modular backend and secure user authentication for personalized experiences.",
-    tags: [
-      "MERN",
-      "AI",
-      "JWT",
-      "Cloudinary",
-      "REST API",
-      "Modular Backend"
+      "An AI-powered wellness platform combining mood tracking, journaling, and conversational AI, built on a modular backend with secure, role-aware authentication.",
+    tags: ["MERN", "AI", "JWT", "Cloudinary", "REST API"],
+    highlights: [
+      { icon: <Layers size={14} />, label: "Modular backend architecture" },
+      { icon: <Zap size={14} />, label: "Conversational AI journaling" }
     ],
     image: "innerlight.png",
     liveUrl: "https://innerlightai.vercel.app/",
     githubUrl: "https://github.com/tassu1/innerlight",
-    featured: true
+    featured: false
   },
-
   {
     title: "DevSnip",
     description:
-      "A developer-focused code snippet manager for saving, organizing, filtering, and instantly reusing frequently used code. Features authenticated snippet management with a clean, productivity-focused interface.",
-    tags: [
-      "MERN",
-      "JWT",
-      "MongoDB",
-      "REST API",
-      "Tailwind CSS"
+      "A developer-focused code snippet manager for saving, organizing, filtering, and instantly reusing frequently used code, with authenticated snippet management.",
+    tags: ["MERN", "JWT", "MongoDB", "REST API", "Tailwind CSS"],
+    highlights: [
+      { icon: <Layers size={14} />, label: "Filterable snippet library" },
+      { icon: <Zap size={14} />, label: "Auth-protected CRUD" }
     ],
     image: "devsnip.png",
     liveUrl: "https://devsnipa.vercel.app/",
     githubUrl: "https://github.com/tassu1/devsnip",
-    featured: true
+    featured: false
   }
 ];
 
@@ -123,85 +123,81 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode = false }) => {
           <div className="w-24 h-1 bg-gradient-to-r from-[#D72638] to-[#9B2226] mx-auto rounded-full mt-6"></div>
         </div>
 
-        <div className="space-y-16 sm:space-y-20">
+        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={index}
-              className={`transform transition-all duration-1000 ease-out delay-${300 + index * 100} ${
+              className={`group rounded-2xl overflow-hidden border ${isDarkMode ? 'border-[#2A2A2A] bg-[#121212] hover:bg-[#161616]' : 'border-[#EAEAEA] bg-white hover:bg-[#FCFCFC]'} shadow-lg transition-all duration-500 flex flex-col ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
               }`}
+              style={{ transitionDelay: `${150 + index * 100}ms` }}
             >
-              <div className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 sm:gap-8 items-center`}>
-                
-                {/* Project Image - Fixed to fill container */}
-                <div className="w-full lg:w-1/2">
-                  <div className="relative group">
-                  
-                    <div className="relative mx-auto max-w-md">
-                      <div className="bg-gray-800 rounded-lg p-1.5 sm:p-2 shadow-xl">
-                        <div className="bg-gray-900 rounded-t-lg p-1">
-                          <div className="flex space-x-1">
-                            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
-                            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
-                            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
-                          </div>
-                        </div>
-                
-                        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-b-lg overflow-hidden relative aspect-video">
-                          <img 
-                            src={project.image} 
-                            alt={project.title} 
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </div>
+              {/* Screenshot */}
+              <div className="relative aspect-video overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {project.featured && (
+                  <span className="absolute top-3 left-3 px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-[#D72638] to-[#9B2226] text-white shadow">
+                    Featured
+                  </span>
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="p-5 sm:p-6 flex flex-col flex-1">
+                <h3 className={`text-lg sm:text-xl font-semibold ${textClasses} mb-2`}>
+                  {project.title}
+                </h3>
+
+                <p className={`${subtextClasses} text-sm leading-relaxed mb-4`}>
+                  {project.description}
+                </p>
+
+                {/* Highlight metrics pulled from real project outcomes */}
+                <div className="flex flex-col gap-1.5 mb-4">
+                  {project.highlights.map((h, hIndex) => (
+                    <div key={hIndex} className={`flex items-center gap-2 text-xs sm:text-sm ${subtextClasses}`}>
+                      <span className={isDarkMode ? 'text-[#D72638]' : 'text-[#9B2226]'}>{h.icon}</span>
+                      {h.label}
                     </div>
-                  </div>
+                  ))}
                 </div>
 
-                {/* Project Content mobile */}
-                <div className="w-full lg:w-1/2">
-                  {project.featured && (
-                    <span className={`inline-block px-3 py-1 text-xs sm:text-sm rounded-full ${isDarkMode ? 'bg-[#D72638]/20 text-[#D72638]' : 'bg-[#D72638]/10 text-[#9B2226]'} mb-3 sm:mb-4`}>
-                      Featured Project
-                    </span>
-                  )}
-                  
-                  <h3 className={`text-xl sm:text-2xl md:text-3xl font-semibold ${textClasses} mb-3 sm:mb-4`}>
-                    {project.title}
-                  </h3>
-                  
-                  <p className={`${subtextClasses} text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed`}>
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span 
-                        key={tagIndex}
-                        className={`px-2.5 py-1 text-xs sm:text-sm rounded-full ${isDarkMode ? 'bg-[#1A1A1A] text-[#A9A9A9]' : 'bg-[#F7F7F7] text-[#5A5A5A]'}`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-3">
-                    <a 
-                      href={project.liveUrl} 
-                      className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#D72638] to-[#9B2226] text-white text-sm sm:text-base font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg`}
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className={`px-2.5 py-1 text-xs rounded-full ${isDarkMode ? 'bg-[#1A1A1A] text-[#A9A9A9]' : 'bg-[#F7F7F7] text-[#5A5A5A]'}`}
                     >
-                      <ExternalLink size={16} className="sm:size-5 mr-1.5 sm:mr-2" />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-3 mt-auto">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-[#D72638] to-[#9B2226] text-white text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    >
+                      <ExternalLink size={15} className="mr-1.5" />
                       Live Demo
                     </a>
-                    <a 
-                      href={project.githubUrl} 
-                      className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg border ${isDarkMode ? 'border-[#2A2A2A] text-[#F1F1F1] hover:bg-[#1A1A1A]' : 'border-[#EAEAEA] text-[#1A1A1A] hover:bg-[#F7F7F7]'} text-sm sm:text-base font-medium transition-all duration-300 hover:scale-105`}
-                    >
-                      <Github size={16} className="sm:size-5 mr-1.5 sm:mr-2" />
-                      GitHub
-                    </a>
-                  </div>
+                  )}
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center px-4 py-2 rounded-lg border ${isDarkMode ? 'border-[#2A2A2A] text-[#F1F1F1] hover:bg-[#1A1A1A]' : 'border-[#EAEAEA] text-[#1A1A1A] hover:bg-[#F7F7F7]'} text-sm font-medium transition-all duration-300 hover:scale-105`}
+                  >
+                    <Github size={15} className="mr-1.5" />
+                    GitHub
+                  </a>
                 </div>
               </div>
             </div>
