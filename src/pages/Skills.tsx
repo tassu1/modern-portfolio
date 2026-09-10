@@ -8,7 +8,8 @@ import {
   FaDocker, 
   FaAws,
   FaHtml5,
-  FaCss3Alt
+  FaCss3Alt,
+  FaGoogle
 } from 'react-icons/fa';
 import { 
   SiNextdotjs, 
@@ -19,8 +20,18 @@ import {
   SiMongodb, 
   SiPostgresql, 
   SiVercel,
-  SiOpenai
+  SiOpenai,
+  SiCplusplus,
+  SiRedux,
+  SiSocketdotio,
+  SiRedis,
+  SiJsonwebtokens,
+  SiRender,
+  SiCloudinary,
+  SiPostman,
+  SiMongoose
 } from 'react-icons/si';
+import { Shield, Workflow, KeyRound, ListOrdered, UploadCloud, Database } from 'lucide-react';
 
 interface SkillsProps {
   isDarkMode?: boolean;
@@ -44,45 +55,80 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode = false }) => {
   const skillCardBg = isDarkMode ? 'bg-[#121212] hover:bg-[#1A1A1A]' : 'bg-white hover:bg-[#F7F7F7]';
   const borderColor = isDarkMode ? 'border-[#2A2A2A]' : 'border-[#EAEAEA]';
 
-  // Skill categories
+  // Skill categories — mirrors resume, backend-first to reflect backend-heavy full stack focus
   const skillCategories = [
+    {
+      title: "Backend & APIs",
+      icon: "⚙️",
+      featured: true,
+      skills: [
+        { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" size={24} />, level: "Proficient" },
+        { name: "Express.js", icon: <SiExpress size={24} />, level: "Proficient" },
+        { name: "REST APIs", icon: <Workflow size={24} className="text-[#D72638]" />, level: "Proficient" },
+        { name: "JWT", icon: <SiJsonwebtokens className="text-[#D63AFF]" size={24} />, level: "Proficient" },
+        { name: "RBAC", icon: <Shield size={24} className="text-[#10B981]" />, level: "Proficient" },
+        { name: "Socket.IO", icon: <SiSocketdotio size={24} />, level: "Intermediate" },
+        { name: "Redis", icon: <SiRedis className="text-[#DC382D]" size={24} />, level: "Intermediate" },
+        { name: "BullMQ", icon: <ListOrdered size={24} className="text-[#9B2226]" />, level: "Intermediate" }
+      ]
+    },
+    {
+      title: "Databases",
+      icon: "🗄️",
+      featured: true,
+      skills: [
+        { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" size={24} />, level: "Proficient" },
+        { name: "Mongoose", icon: <SiMongoose className="text-[#F04D35]" size={24} />, level: "Proficient" },
+        { name: "PostgreSQL", icon: <SiPostgresql className="text-[#4169E1]" size={24} />, level: "Intermediate" },
+        { name: "Schema Design", icon: <Database size={24} className="text-[#10B981]" />, level: "Proficient" }
+      ]
+    },
+    {
+      title: "DevOps & Cloud",
+      icon: "☁️",
+      featured: true,
+      skills: [
+        { name: "Docker", icon: <FaDocker className="text-[#2496ED]" size={24} />, level: "Intermediate" },
+        { name: "Git", icon: <FaGitAlt className="text-[#F05032]" size={24} />, level: "Proficient" },
+        { name: "GitHub", icon: <FaGithub size={24} />, level: "Proficient" },
+        { name: "CI/CD", icon: <Workflow size={24} className="text-[#9B2226]" />, level: "Intermediate" },
+        { name: "AWS (EC2/S3/CloudFront)", icon: <FaAws className="text-[#FF9900]" size={24} />, level: "Intermediate" },
+        { name: "Vercel", icon: <SiVercel size={24} />, level: "Proficient" },
+        { name: "Render", icon: <SiRender size={24} />, level: "Intermediate" }
+      ]
+    },
+    {
+      title: "Languages",
+      icon: "🧠",
+      skills: [
+        { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" size={24} />, level: "Proficient" },
+        { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" size={24} />, level: "Proficient" },
+        { name: "Python", icon: <FaPython className="text-[#3776AB]" size={24} />, level: "Intermediate" },
+        { name: "C++", icon: <SiCplusplus className="text-[#00599C]" size={24} />, level: "Intermediate" }
+      ]
+    },
     {
       title: "Frontend",
       icon: "🖥️",
       skills: [
         { name: "React", icon: <FaReact className="text-[#61DAFB]" size={24} />, level: "Proficient" },
         { name: "Next.js", icon: <SiNextdotjs size={24} />, level: "Intermediate" },
-        { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" size={24} />, level: "Intermediate" },
-        { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" size={24} />, level: "Proficient" },
+        { name: "Redux", icon: <SiRedux className="text-[#764ABC]" size={24} />, level: "Intermediate" },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06B6D4]" size={24} />, level: "Proficient" },
         { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" size={24} />, level: "Proficient" },
-        { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" size={24} />, level: "Proficient" },
-        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06B6D4]" size={24} />, level: "Proficient" }
+        { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" size={24} />, level: "Proficient" }
       ]
     },
     {
-      title: "Backend & DevOps",
-      icon: "⚙️",
-      skills: [
-        { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" size={24} />, level: "Proficient" },
-        { name: "Express.js", icon: <SiExpress size={24} />, level: "Proficient" },
-        { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" size={24} />, level: "Proficient" },
-        { name: "PostgreSQL", icon: <SiPostgresql className="text-[#4169E1]" size={24} />, level: "Intermediate" },
-        { name: "Git", icon: <FaGitAlt className="text-[#F05032]" size={24} />, level: "Proficient" },
-        { name: "GitHub", icon: <FaGithub size={24} />, level: "Proficient" },
-        { name: "Docker", icon: <FaDocker className="text-[#2496ED]" size={24} />, level: "Intermediate" },
-        { name: "AWS", icon: <FaAws className="text-[#FF9900]" size={24} />, level: "Learning" },
-        { name: "Vercel", icon: <SiVercel size={24} />, level: "Intermediate" }
-      ]
-    },
-    {
-      title: "AI & Tools",
+      title: "AI & Integrations",
       icon: "🤖",
       skills: [
-        { name: "Python", icon: <FaPython className="text-[#3776AB]" size={24} />, level: "Intermediate" },
-        { name: "Open Router", icon: <SiOpenai size={24} />, level: "Learning" },
-        { name: "LangChain", icon: <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>, level: "Learning" },
-        { name: "VS Code", icon: <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>, level: "Proficient" },
-        { name: "Postman", icon: <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full"></div>, level: "Proficient" }
+        { name: "OpenRouter API", icon: <SiOpenai size={24} />, level: "Intermediate" },
+        { name: "Google OAuth", icon: <FaGoogle className="text-[#4285F4]" size={24} />, level: "Intermediate" },
+        { name: "NextAuth", icon: <KeyRound size={24} className="text-[#9B2226]" />, level: "Intermediate" },
+        { name: "Cloudinary", icon: <SiCloudinary className="text-[#3448C5]" size={24} />, level: "Proficient" },
+        { name: "Multer", icon: <UploadCloud size={24} className="text-[#10B981]" />, level: "Proficient" },
+        { name: "Postman", icon: <SiPostman className="text-[#FF6C37]" size={24} />, level: "Proficient" }
       ]
     }
   ];
@@ -113,7 +159,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode = false }) => {
             💻 My Skills
           </h2>
           <p className={`${subtextClasses} text-xl max-w-2xl mx-auto`}>
-            Technologies and tools I use to build scalable, modern applications.
+            A backend-heavy full stack toolkit — from database and API design to deployment, with a matching frontend skillset.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-[#D72638] to-[#9B2226] mx-auto rounded-full mt-6"></div>
         </div>
@@ -123,7 +169,17 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode = false }) => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className={`rounded-2xl p-6 ${skillCardBg} border ${borderColor} shadow-lg`}>
+            <div
+              key={categoryIndex}
+              className={`rounded-2xl p-6 ${skillCardBg} border ${
+                category.featured ? (isDarkMode ? 'border-[#D72638]/50' : 'border-[#D72638]/40') : borderColor
+              } shadow-lg relative`}
+            >
+              {category.featured && (
+                <span className="absolute -top-3 right-4 text-[10px] uppercase tracking-wider font-semibold px-2 py-1 rounded-full bg-gradient-to-r from-[#D72638] to-[#9B2226] text-white shadow">
+                  Core Strength
+                </span>
+              )}
               <h3 className={`text-xl font-semibold ${textClasses} mb-6 flex items-center`}>
                 <span className="mr-2 text-2xl">{category.icon}</span>
                 {category.title}
