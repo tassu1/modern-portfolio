@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Mail, ExternalLink, BookOpen } from 'lucide-react';
+import { Github, Mail, ExternalLink, BookOpen, Linkedin, FileDown } from 'lucide-react';
+import { SiLeetcode } from 'react-icons/si';
 
 interface HeroProps {
   isDarkMode?: boolean;
@@ -11,10 +12,16 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
   const [currentTagline, setCurrentTagline] = useState<number>(0);
 
   const taglines: string[] = [
-  "Fullstack Developer",
-  "Product Builder",
+  "Backend-Heavy Full Stack Developer",
+  "API & Systems Architect",
   "Turning Ideas into Reality"
 ];
+
+  const stats: { label: string; value: string }[] = [
+    { label: "DSA Problems Solved", value: "300+" },
+    { label: "REST APIs Shipped", value: "15+" },
+    { label: "Full Stack Projects", value: "5+" }
+  ];
 
 
   useEffect(() => {
@@ -41,6 +48,13 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const socialLinks = [
+    { name: "GitHub", href: "https://github.com/tassu1", icon: <Github size={20} /> },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/md-tahseen-alam-892317263/", icon: <Linkedin size={20} /> },
+    { name: "LeetCode", href: "https://leetcode.com/u/tahseen_/", icon: <SiLeetcode size={18} /> },
+    { name: "Email", href: "mailto:tassutahsee@gmail.com", icon: <Mail size={20} /> }
+  ];
 
   //  color scheme
   const bgClasses = isDarkMode ? 'bg-[#0A0A0A]' : 'bg-[#FAFAFA]';
@@ -142,11 +156,27 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
   <p
     className={`text-lg sm:text-xl font-medium ${subtextClasses} leading-relaxed max-w-2xl mx-4`}
   >
-    I’m curious by nature and love exploring new technologies. 
-    My focus is on turning ideas into 
-    <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#D72638] to-[#9B2226]"> practical solutions </span> 
-    that are simple, reliable, and meaningful.
+    I specialize in <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#D72638] to-[#9B2226]">backend architecture and API design</span>, 
+    matched with a solid frontend skill set — shipping full stack platforms end to end, from database schema to AWS/Vercel deployment.
   </p>
+</div>
+
+{/* Quick Stats */}
+<div className={`transform transition-all duration-1000 ease-out delay-600 mb-10 ${
+    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+  }`}>
+  <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+    {stats.map((stat, index) => (
+      <div key={index} className="text-center">
+        <div className={`text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D72638] to-[#9B2226]`}>
+          {stat.value}
+        </div>
+        <div className={`text-xs sm:text-sm ${subtextClasses} tracking-wide uppercase mt-1`}>
+          {stat.label}
+        </div>
+      </div>
+    ))}
+  </div>
 </div>
 
 
@@ -173,6 +203,36 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
                 <Mail size={22} />
                 <span>Get In Touch</span>
               </button>
+
+              <a
+                href="/Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group px-8 py-4 sm:px-10 sm:py-5 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 border ${isDarkMode ? 'border-[#2A2A2A] text-[#F1F1F1] hover:bg-[#1A1A1A]' : 'border-[#EAEAEA] text-[#1A1A1A] hover:bg-[#F7F7F7]'}`}
+              >
+                <FileDown size={22} />
+                <span>Resume</span>
+              </a>
+            </div>
+
+            {/* Social links */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className={`p-3 rounded-full border transition-all duration-300 hover:scale-110 ${
+                    isDarkMode
+                      ? 'border-[#2A2A2A] text-[#A9A9A9] hover:text-[#F1F1F1] hover:border-[#D72638]'
+                      : 'border-[#EAEAEA] text-[#5A5A5A] hover:text-[#1A1A1A] hover:border-[#D72638]'
+                  }`}
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>
