@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Mail, ExternalLink, BookOpen, Linkedin, FileDown } from 'lucide-react';
+import { Github, Mail, Linkedin, FileDown, ArrowRight } from 'lucide-react';
 import { SiLeetcode } from 'react-icons/si';
 
 interface HeroProps {
@@ -9,20 +9,15 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [currentTagline, setCurrentTagline] = useState<number>(0);
 
-  const taglines: string[] = [
-  "Backend-Heavy Full Stack Developer",
-  "API & Systems Architect",
-  "Turning Ideas into Reality"
-];
-
-  const stats: { label: string; value: string }[] = [
-    { label: "DSA Problems Solved", value: "300+" },
-    { label: "REST APIs Shipped", value: "15+" },
-    { label: "Full Stack Projects", value: "5+" }
+  const snapshot = [
+    { label: "Internships", value: "02" },
+    { label: "Projects Built", value: "05" },
+    { label: "Live Products", value: "04" },
+    { label: "DSA Problems", value: "300+" }
   ];
 
+  const currentFocus = ["Redis", "BullMQ", "AWS", "AI Systems"];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,192 +26,97 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTagline((prev) => (prev + 1) % taglines.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, [taglines.length]);
-
-  const handleViewGithub = (): void => {
-    window.open('https://github.com/tassu1', '_blank');
+  const handleViewWork = (): void => {
+    const element = document.querySelector('#projects');
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleContact = (): void => {
     const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
   const socialLinks = [
-    { name: "GitHub", href: "https://github.com/tassu1", icon: <Github size={20} /> },
-    { name: "LinkedIn", href: "https://www.linkedin.com/in/md-tahseen-alam-892317263/", icon: <Linkedin size={20} /> },
-    { name: "LeetCode", href: "https://leetcode.com/u/tahseen_/", icon: <SiLeetcode size={18} /> },
-    { name: "Email", href: "mailto:tassutahsee@gmail.com", icon: <Mail size={20} /> }
+    { name: "GitHub", href: "https://github.com/tassu1", icon: <Github size={19} /> },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/md-tahseen-alam-892317263/", icon: <Linkedin size={19} /> },
+    { name: "LeetCode", href: "https://leetcode.com/u/tahseen_/", icon: <SiLeetcode size={17} /> },
+    { name: "Email", href: "mailto:tassutahsee@gmail.com", icon: <Mail size={19} /> }
   ];
 
-  //  color scheme
+  // Editorial color scheme
   const bgClasses = isDarkMode ? 'bg-[#0A0A0A]' : 'bg-[#FAFAFA]';
-  const textClasses = isDarkMode ? 'text-[#F1F1F1]' : 'text-[#1A1A1A]';
-  const subtextClasses = isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]';
-  
-  const primaryBtnClasses = isDarkMode 
-    ? 'bg-gradient-to-r from-[#9B2226] to-[#D72638] hover:from-[#7A1B1E] hover:to-[#B52130] text-white shadow-lg shadow-red-900/30 hover:shadow-red-900/50' 
-    : 'bg-gradient-to-r from-[#D72638] to-[#9B2226] hover:from-[#E53949] hover:to-[#B52130] text-white shadow-lg shadow-red-500/30 hover:shadow-red-500/50';
-  
-  const secondaryBtnClasses = isDarkMode 
-    ? 'border border-[#9B2226] text-[#9B2226] hover:bg-[#9B2226] hover:text-[#F1F1F1]' 
-    : 'border border-[#D72638] text-[#D72638] hover:bg-[#D72638] hover:text-white';
+  const textClasses = isDarkMode ? 'text-[#F5F5F5]' : 'text-[#141414]';
+  const subtextClasses = isDarkMode ? 'text-[#A1A1AA]' : 'text-[#5A5A5A]';
+  const panelBg = isDarkMode ? 'bg-[#12151A]' : 'bg-white';
+  const panelBorder = isDarkMode ? 'border-[#22252B]' : 'border-[#E5E5E5]';
+  const monoClasses = isDarkMode ? 'text-[#A1A1AA]' : 'text-[#6A6A6A]';
+
+  const primaryBtnClasses = isDarkMode
+    ? 'bg-[#6C8CFF] hover:bg-[#7C93FF] text-[#0A0A0A]'
+    : 'bg-[#4F46E5] hover:bg-[#4338CA] text-white';
+
+  const secondaryBtnClasses = isDarkMode
+    ? 'border border-[#2A2D33] text-[#F5F5F5] hover:border-[#6C8CFF] hover:text-[#6C8CFF]'
+    : 'border border-[#E0E0E0] text-[#141414] hover:border-[#4F46E5] hover:text-[#4F46E5]';
 
   return (
-    <section id="home" className={`min-h-screen flex items-center justify-center pt-16 ${bgClasses} ${className} relative overflow-hidden`}>
-      
-    
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-       
-        <div className="absolute top-1/4 -left-10 w-96 h-96 bg-gradient-to-br from-[#9B2226] to-[#D72638] rounded-full opacity-10 blur-3xl animate-orb-float-1" />
-        <div className="absolute bottom-1/4 -right-10 w-80 h-80 bg-gradient-to-br from-[#10B981] to-[#047857] rounded-full opacity-10 blur-3xl animate-orb-float-2" />
-        
-        {/* Geometric shapes */}
-        <div className={`absolute top-20 right-20 w-40 h-40 border-2 ${isDarkMode ? 'border-[#9B2226]' : 'border-[#D72638]'} opacity-10 rotate-45`} />
-        <div className={`absolute bottom-20 left-20 w-32 h-32 border-2 ${isDarkMode ? 'border-[#10B981]' : 'border-[#10B981]'} opacity-10 rotate-12`} />
-        
-        {/* Animated connecting lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-20" preserveAspectRatio="none">
-          <line x1="20%" y1="80%" x2="40%" y2="30%" stroke={isDarkMode ? "#9B2226" : "#D72638"} strokeWidth="1" className="animate-line-draw" />
-          <line x1="70%" y1="20%" x2="90%" y2="60%" stroke={isDarkMode ? "#10B981" : "#10B981"} strokeWidth="1" className="animate-line-draw-2" />
-        </svg>
-      </div>
+    <section id="home" className={`min-h-screen flex items-center pt-24 pb-16 ${bgClasses} ${className} relative overflow-hidden`}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-start">
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="flex flex-col items-center text-center">
-          
-         
+          {/* Left: headline + copy + CTAs */}
           <div className={`transform transition-all duration-1000 ease-out ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
           }`}>
-            <div className="flex items-center gap-3 mb-6 justify-center">
-              <div className="relative">
-                <div className="w-3 h-3 rounded-full bg-[#10B981] animate-pulse" />
-                <div className="absolute -inset-1.5 rounded-full bg-[#10B981] animate-ping opacity-30" />
-              </div>
-              <span className={`text-sm font-medium ${isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]'} tracking-wider uppercase`}>
-                Available for new opportunities
+            <div className="flex items-center gap-2.5 mb-6">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-60"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
+              </span>
+              <span className={`text-xs font-mono ${monoClasses} tracking-widest uppercase`}>
+                STATUS: OPEN_TO_WORK
               </span>
             </div>
-            
-            <h1 className={`text-4xl sm:text-5xl md:text-6xl font-semibold ${textClasses} leading-tight mb-4 tracking-normal`}>
-              Hello, I'm{' '}
-              <span className="relative">
-                <span className="bg-gradient-to-r from-[#D72638] via-[#D72638] to-[#D72638] bg-clip-text text-transparent bg-300% animate-gradient">
-                  Tahseen
-                </span>
-              </span>
+
+            <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-semibold ${textClasses} leading-[1.1] tracking-tight mb-6`}>
+              I build products where the frontend is only the beginning.
             </h1>
 
-            {/* Student Information */}
-            <div className={`flex items-center justify-center gap-2 mb-6 ${subtextClasses}`}>
-              <BookOpen size={18} />
-              <span className="text-sm font-medium">Final Year Computer Science Student</span>
-            </div>
-          </div>
+            <p className={`text-lg sm:text-xl ${subtextClasses} leading-relaxed max-w-xl mb-10`}>
+              Backend-focused Full Stack Developer building scalable web applications
+              with Node.js, TypeScript, Redis and cloud infrastructure — taking systems
+              from database design through deployment.
+            </p>
 
-          {/* Rotating Tagline */}
-          <div className={`transform transition-all duration-1000 ease-out delay-300 mb-8 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}>
-            <div className="h-14 sm:h-16 md:h-20 overflow-hidden flex justify-center mb-3">
-              {taglines.map((tagline, index) => (
-                <h2 
-                  key={index}
-                  className={`text-2xl sm:text-3xl md:text-4xl font-medium ${
-                    isDarkMode ? 'text-[#A9A9A9]' : 'text-[#5A5A5A]'
-                  } absolute transition-all duration-700 ease-in-out whitespace-nowrap ${
-                    index === currentTagline 
-                      ? 'opacity-100 translate-y-0 scale-100' 
-                      : 'opacity-0 translate-y-8 scale-95'
-                  }`}
-                >
-                  {tagline}
-                </h2>
-              ))}
-            </div>
-            <div className="relative w-32 h-1 mx-auto rounded-full bg-gray-300 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#D72638] to-[#9B2226] animate-progress"></div>
-            </div>
-          </div>
-
-          {/* Description */}
-         <div
-  className={`transform transition-all duration-1000 ease-out delay-500 mb-10 ${
-    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-  }`}
->
-  <p
-    className={`text-lg sm:text-xl font-medium ${subtextClasses} leading-relaxed max-w-2xl mx-4`}
-  >
-    I specialize in <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#D72638] to-[#9B2226]">backend architecture and API design</span>, 
-    matched with a solid frontend skill set — shipping full stack platforms end to end, from database schema to AWS/Vercel deployment.
-  </p>
-</div>
-
-{/* Quick Stats */}
-<div className={`transform transition-all duration-1000 ease-out delay-600 mb-10 ${
-    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-  }`}>
-  <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
-    {stats.map((stat, index) => (
-      <div key={index} className="text-center">
-        <div className={`text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D72638] to-[#9B2226]`}>
-          {stat.value}
-        </div>
-        <div className={`text-xs sm:text-sm ${subtextClasses} tracking-wide uppercase mt-1`}>
-          {stat.label}
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
-
-          {/* CTA Buttons */}
-          <div className={`transform transition-all duration-1000 ease-out delay-700 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}>
-            <div className="flex flex-col sm:flex-row gap-5 justify-center px-4">
+            <div className="flex flex-wrap gap-4 mb-10">
               <button
-                onClick={handleViewGithub}
-                className={`group px-8 py-4 sm:px-10 sm:py-5 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 ${primaryBtnClasses} relative overflow-hidden`}
+                onClick={handleViewWork}
+                className={`group px-7 py-3.5 rounded-lg font-semibold text-base transition-all duration-300 flex items-center gap-2 ${primaryBtnClasses}`}
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                <Github size={22} />
-                <span>View Projects</span>
-                <ExternalLink size={18} />
-              </button>
-              
-              <button
-                onClick={handleContact}
-                className={`group px-8 py-4 sm:px-10 sm:py-5 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 ${secondaryBtnClasses} relative overflow-hidden`}
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                <Mail size={22} />
-                <span>Get In Touch</span>
+                <span>View Work</span>
+                <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
               </button>
 
               <a
                 href="/Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group px-8 py-4 sm:px-10 sm:py-5 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 border ${isDarkMode ? 'border-[#2A2A2A] text-[#F1F1F1] hover:bg-[#1A1A1A]' : 'border-[#EAEAEA] text-[#1A1A1A] hover:bg-[#F7F7F7]'}`}
+                className={`px-7 py-3.5 rounded-lg font-semibold text-base transition-all duration-300 flex items-center gap-2 ${secondaryBtnClasses}`}
               >
-                <FileDown size={22} />
+                <FileDown size={17} />
                 <span>Resume</span>
               </a>
+
+              <button
+                onClick={handleContact}
+                className={`px-7 py-3.5 rounded-lg font-semibold text-base transition-all duration-300 flex items-center gap-2 ${secondaryBtnClasses}`}
+              >
+                <Mail size={17} />
+                <span>Contact</span>
+              </button>
             </div>
 
-            {/* Social links */}
-            <div className="flex items-center justify-center gap-4 mt-8">
+            <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -224,10 +124,10 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className={`p-3 rounded-full border transition-all duration-300 hover:scale-110 ${
+                  className={`p-2.5 rounded-lg border transition-all duration-300 ${
                     isDarkMode
-                      ? 'border-[#2A2A2A] text-[#A9A9A9] hover:text-[#F1F1F1] hover:border-[#D72638]'
-                      : 'border-[#EAEAEA] text-[#5A5A5A] hover:text-[#1A1A1A] hover:border-[#D72638]'
+                      ? 'border-[#22252B] text-[#A1A1AA] hover:text-[#F5F5F5] hover:border-[#6C8CFF]'
+                      : 'border-[#E5E5E5] text-[#5A5A5A] hover:text-[#141414] hover:border-[#4F46E5]'
                   }`}
                 >
                   {social.icon}
@@ -235,61 +135,50 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode = false, className = '' }) => {
               ))}
             </div>
           </div>
+
+          {/* Right: Engineering Snapshot panel */}
+          <div className={`transform transition-all duration-1000 ease-out delay-300 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+          }`}>
+            <div className={`rounded-2xl border ${panelBorder} ${panelBg} p-6 sm:p-7 shadow-sm`}>
+              <div className={`text-xs font-mono ${monoClasses} tracking-widest uppercase mb-6 pb-4 border-b ${panelBorder}`}>
+                Engineering Snapshot
+              </div>
+
+              <div className="grid grid-cols-2 gap-y-6 mb-6">
+                {snapshot.map((item, index) => (
+                  <div key={index}>
+                    <div className={`text-2xl sm:text-3xl font-bold ${isDarkMode ? 'text-[#6C8CFF]' : 'text-[#4F46E5]'} font-mono`}>
+                      {item.value}
+                    </div>
+                    <div className={`text-xs ${subtextClasses} tracking-wide uppercase mt-1`}>
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className={`pt-5 border-t ${panelBorder}`}>
+                <div className={`text-xs font-mono ${monoClasses} tracking-widest uppercase mb-3`}>
+                  Current Focus
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {currentFocus.map((tech) => (
+                    <span
+                      key={tech}
+                      className={`px-2.5 py-1 text-xs font-mono rounded-md ${
+                        isDarkMode ? 'bg-[#1A1D23] text-[#A1A1AA]' : 'bg-[#F5F5F7] text-[#5A5A5A]'
+                      }`}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-  
-      <style>
-        {`
-          @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-          }
-          @keyframes line-draw {
-            0% { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
-            100% { stroke-dasharray: 1000; stroke-dashoffset: 0; }
-          }
-          @keyframes progress {
-            0% { width: 0%; }
-            100% { width: 100%; }
-          }
-          @keyframes orb-float-1 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-20px, -30px) rotate(5deg); }
-          }
-          @keyframes orb-float-2 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(20px, 30px) rotate(-5deg); }
-          }
-          .animate-gradient {
-            animation: gradient 3s ease infinite;
-            background-size: 200% 200%;
-          }
-          .animate-line-draw {
-            animation: line-draw 3s ease-in-out infinite alternate;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-          }
-          .animate-line-draw-2 {
-            animation: line-draw 4s ease-in-out infinite alternate-reverse;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-          }
-          .animate-progress {
-            animation: progress 2.5s ease-in-out infinite alternate;
-          }
-          .animate-orb-float-1 {
-            animation: orb-float-1 15s ease-in-out infinite;
-          }
-          .animate-orb-float-2 {
-            animation: orb-float-2 18s ease-in-out infinite;
-          }
-          .bg-300% {
-            background-size: 300% 300%;
-          }
-        `}
-      </style>
     </section>
   );
 };
