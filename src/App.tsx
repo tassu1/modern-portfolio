@@ -1,76 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
+import CommandPalette from './components/CommandPalette';
+import Footer from './components/Footer';
 import Hero from './pages/Hero';
-import Skills from './pages/Skills';
+import Approach from './pages/Approach';
 import Projects from './pages/Projects';
+import Capabilities from './pages/Capabilities';
+import TechStack from './pages/TechStack';
+import Experience from './pages/Experience';
+import ProofAndFocus from './pages/ProofAndFocus';
+import About from './pages/About';
 import Contact from './pages/Contact';
 
 const App: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    // Check localStorage for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme ? savedTheme === 'dark' : false;
-  });
+  const [isPaletteOpen, setIsPaletteOpen] = useState(false);
 
   useEffect(() => {
-    // Save theme preference to localStorage
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    
-    // Apply theme class to document root for consistent styling
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
-
-  const toggleTheme = (): void => {
-    setIsDarkMode(!isDarkMode);
-  };
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsPaletteOpen((prev) => !prev);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
-      {/* Navbar with theme state */}
-      <Navbar 
-        isDarkMode={isDarkMode} 
-        onThemeToggle={toggleTheme} 
-      />
-      
-      {/* Hero Section */}
-      <Hero isDarkMode={isDarkMode} />
-      
-      {/* Placeholder sections for navigation testing */}
-      
-      
-      <section 
-        id="skills" 
-        className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${
-          isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'
-        }`}
-      >
-       <Skills isDarkMode={isDarkMode}/>
-      </section>
-      
-      <section 
-        id="projects" 
-        className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${
-          isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
-        }`}
-      >
-        <Projects isDarkMode={isDarkMode}/>
-      </section>
+    <div className="min-h-screen bg-[#0A0A0A]">
+      <Navbar onOpenPalette={() => setIsPaletteOpen(true)} />
+      <CommandPalette isOpen={isPaletteOpen} onClose={() => setIsPaletteOpen(false)} />
 
-
-      
-      
-      <section 
-        id="contact" 
-        className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${
-          isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'
-        }`}
-      >
-        <Contact isDarkMode={isDarkMode}/>
-      </section>
+      <Hero />
+      <Approach />
+      <Projects />
+      <Capabilities />
+      <TechStack />
+      <Experience />
+      <ProofAndFocus />
+      <About />
+      <Contact />
+      <Footer />
     </div>
   );
 };
