@@ -1,5 +1,5 @@
 import React from 'react';
-import { experience, beyondResume } from '../data/portfolio';
+import { experience } from '../data/portfolio';
 
 const Experience: React.FC = () => {
   return (
@@ -39,10 +39,6 @@ const Experience: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-10 rounded-xl border border-[#1F232B] bg-[#111318] p-5 flex items-start gap-3">
-          <span className="font-mono text-[#5B8DFF] text-sm shrink-0">//</span>
-          <p className="text-sm text-[#8B8F98] leading-relaxed">{beyondResume}</p>
-        </div>
       </div>
     </section>
   );
