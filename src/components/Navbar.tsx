@@ -69,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenPalette }) => {
 
           <button onClick={() => scrollTo('#home')} className="flex items-center gap-2 font-mono text-sm shrink-0" aria-label="Scroll to top">
             <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
-            <span className="font-semibold tracking-tight text-[#EDEDED]">TAHSEEN_ALAM</span>
+            <span className="font-semibold tracking-tight text-[#EDEDED]">~TAHSEEN</span>
           </button>
 
           <div className="hidden md:flex items-center gap-1">
