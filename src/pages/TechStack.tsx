@@ -11,7 +11,7 @@ const TechStack: React.FC = () => {
             The actual toolkit
           </h2>
           <p className="text-[#8B8F98] text-base">
-            What I reach for, and why — not a badge wall.
+            What I reach for, and why not a badge wall.
           </p>
         </div>
 
