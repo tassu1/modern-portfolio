@@ -11,7 +11,7 @@ const Approach: React.FC = () => {
             How I think about software
           </h2>
           <p className="text-[#8B8F98] text-base">
-            The same sequence, every time — before I write the first line of a feature.
+            The same sequence, every time before I write the first line of a feature.
           </p>
         </div>
 
