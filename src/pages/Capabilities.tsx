@@ -11,7 +11,7 @@ const Capabilities: React.FC = () => {
             Systems I build
           </h2>
           <p className="text-[#8B8F98] text-base">
-            Grouped by what each part of a system actually does — not a wall of logos.
+            Grouped by what each part of a system actually does not a wall of logos.
           </p>
         </div>
 
