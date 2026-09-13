@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]" />
               </span>
               <span className="text-xs font-mono text-[#8B8F98] tracking-widest uppercase">
-                SYSTEM.STATUS — {profile.status}
+                SYSTEM.STATUS ~{profile.status}
               </span>
             </div>
 
