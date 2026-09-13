@@ -162,7 +162,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode = false }) => {
             My toolkit, grouped by what each layer does
           </h2>
           <p className={`${subtextClasses} text-base max-w-2xl`}>
-            Backend and infrastructure first — that's where most of the engineering decisions happen — with a matching frontend skillset on top.
+            Backend and infrastructure first that's where most of the engineering decisions happen — with a matching frontend skillset on top.
           </p>
         </div>
 
