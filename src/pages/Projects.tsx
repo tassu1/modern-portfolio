@@ -1,6 +1,6 @@
 import React from 'react';
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
-import { featuredProjects, otherProjects } from '../data/portfolio';
+import { ExternalLink, Github } from 'lucide-react';
+import { featuredProjects } from '../data/portfolio';
 import ArchitectureDiagram from '../components/ArchitectureDiagram';
 
 const Projects: React.FC = () => {
@@ -10,55 +10,17 @@ const Projects: React.FC = () => {
         <div className="mb-16 max-w-2xl">
           <div className="text-xs font-mono text-[#5C616B] tracking-widest uppercase mb-3">02 · Featured Systems</div>
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#EDEDED] mb-3">
-            Proof, not claims
+            Proof not claims
           </h2>
           <p className="text-[#8B8F98] text-base">
-            Three systems with a real engineering decision behind each one — the kind that shows up when things get hard, not when they're easy.
+            Five systems five real engineering decisions the kind that only show up when things get hard not when they're easy.
           </p>
         </div>
 
-        <div className="space-y-24 sm:space-y-32">
+        <div className="space-y-28 sm:space-y-36">
           {featuredProjects.map((project, index) => (
             <FeaturedCaseStudy key={project.id} project={project} index={index} />
           ))}
-        </div>
-
-        <div className="mt-28 sm:mt-36">
-          <div className="text-xs font-mono text-[#5C616B] tracking-widest uppercase mb-8">Other Builds</div>
-          <div className="grid sm:grid-cols-2 gap-5">
-            {otherProjects.map((project) => (
-              <a
-                key={project.id}
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-xl border border-[#1F232B] bg-[#111318] overflow-hidden hover:border-[#2A2F38] transition-colors duration-200"
-              >
-                <div className="aspect-[16/9] overflow-hidden border-b border-[#1F232B] bg-[#0D0F13]">
-                  <img
-                    src={`/${project.image}`}
-                    alt={`${project.name} screenshot`}
-                    className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-300"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-[#EDEDED] font-semibold">{project.name}</h3>
-                    <ArrowUpRight size={16} className="text-[#5C616B] group-hover:text-[#5B8DFF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
-                  </div>
-                  <p className="text-sm text-[#8B8F98] leading-relaxed mb-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-[10px] font-mono px-2 py-1 rounded bg-[#0D0F13] text-[#8B8F98] border border-[#1F232B]">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -69,15 +31,43 @@ const FeaturedCaseStudy: React.FC<{ project: typeof featuredProjects[number]; in
   const hasImage = Boolean(project.image);
 
   return (
-    <div id={`project-${project.id}`} className="scroll-mt-24">
-      <div className="flex items-start gap-4 mb-8">
-        <span className="font-mono text-sm text-[#5C616B] mt-1.5">{String(index + 1).padStart(2, '0')}</span>
-        <div>
-          <h3 className="text-2xl sm:text-3xl font-semibold text-[#EDEDED] mb-2">{project.name}</h3>
-          <p className="text-[#8B8F98] text-base sm:text-lg max-w-2xl leading-relaxed">{project.tagline}</p>
+    <div id={`project-${project.id}`} className="scroll-mt-24 relative">
+      {/* Ghost index number — ambient, not competing with content */}
+      <span className="hidden sm:block absolute -top-6 -left-2 font-mono text-7xl font-bold text-[#111318] select-none pointer-events-none">
+        {String(index + 1).padStart(2, '0')}
+      </span>
+
+      {/* Header */}
+      <div className="relative mb-8">
+        <div className="font-mono text-xs text-[#5C616B] tracking-widest uppercase mb-2">
+          {String(index + 1).padStart(2, '0')} / {String(featuredProjects.length).padStart(2, '0')}
+        </div>
+        <h3 className="text-2xl sm:text-3xl font-semibold text-[#EDEDED] mb-2">{project.name}</h3>
+        <p className="text-[#8B8F98] text-base sm:text-lg max-w-2xl leading-relaxed">{project.tagline}</p>
+      </div>
+
+      {/* Decision-first callout — the differentiator leads, not the CRUD description */}
+      <div className="relative rounded-xl border border-[#5B8DFF]/25 bg-gradient-to-br from-[#5B8DFF]/[0.06] to-transparent p-6 sm:p-7 mb-8">
+        <div className="font-mono text-[11px] text-[#5B8DFF] tracking-widest uppercase mb-5">
+          The Engineering Call
+        </div>
+        <div className="grid sm:grid-cols-3 gap-6">
+          <div>
+            <div className="text-[10px] font-mono text-[#5C616B] uppercase tracking-wider mb-2">Decision</div>
+            <p className="text-sm text-[#C4C8CF] leading-relaxed">{project.decision.decision}</p>
+          </div>
+          <div>
+            <div className="text-[10px] font-mono text-[#5C616B] uppercase tracking-wider mb-2">Why</div>
+            <p className="text-sm text-[#C4C8CF] leading-relaxed">{project.decision.why}</p>
+          </div>
+          <div>
+            <div className="text-[10px] font-mono text-[#5C616B] uppercase tracking-wider mb-2">Tradeoff</div>
+            <p className="text-sm text-[#C4C8CF] leading-relaxed">{project.decision.tradeoff}</p>
+          </div>
         </div>
       </div>
 
+      {/* Problem / System, supporting the decision above — with screenshot alongside */}
       <div className={`grid ${hasImage ? 'lg:grid-cols-[1fr_1fr]' : ''} gap-8 lg:gap-12 mb-10`}>
         <div className="space-y-5">
           <div>
@@ -109,33 +99,19 @@ const FeaturedCaseStudy: React.FC<{ project: typeof featuredProjects[number]; in
         )}
       </div>
 
-      <div className="rounded-xl border border-[#1F232B] bg-[#111318] p-6 sm:p-7 mb-8">
-        <div className="font-mono text-[11px] text-[#5B8DFF] tracking-widest uppercase mb-5">Engineering Decision</div>
-        <div className="grid sm:grid-cols-3 gap-6">
-          <div>
-            <div className="text-[10px] font-mono text-[#5C616B] uppercase tracking-wider mb-2">Decision</div>
-            <p className="text-sm text-[#C4C8CF] leading-relaxed">{project.decision.decision}</p>
-          </div>
-          <div>
-            <div className="text-[10px] font-mono text-[#5C616B] uppercase tracking-wider mb-2">Why</div>
-            <p className="text-sm text-[#C4C8CF] leading-relaxed">{project.decision.why}</p>
-          </div>
-          <div>
-            <div className="text-[10px] font-mono text-[#5C616B] uppercase tracking-wider mb-2">Tradeoff</div>
-            <p className="text-sm text-[#C4C8CF] leading-relaxed">{project.decision.tradeoff}</p>
-          </div>
+      {/* Architecture gets full width and real visual weight now — no longer an afterthought */}
+      <div className="mb-8 rounded-xl border border-[#1F232B] bg-[#0D0F13] p-5 sm:p-7">
+        <div className="flex items-center justify-between mb-5">
+          <div className="font-mono text-[11px] text-[#5C616B] tracking-widest uppercase">Architecture</div>
         </div>
-      </div>
-
-      <div className="mb-8">
-        <div className="font-mono text-[11px] text-[#5C616B] tracking-widest uppercase mb-4">Architecture</div>
         <ArchitectureDiagram stages={project.architecture.stages} annotation={project.architecture.annotation} />
       </div>
 
+      {/* Stack + links */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap gap-2">
           {project.stack.map((tech) => (
-            <span key={tech} className="text-[11px] font-mono px-2.5 py-1 rounded bg-[#0D0F13] border border-[#1F232B] text-[#8B8F98]">
+            <span key={tech} className="text-[11px] font-mono px-2.5 py-1 rounded bg-[#111318] border border-[#1F232B] text-[#8B8F98]">
               {tech}
             </span>
           ))}
