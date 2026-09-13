@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]" />
           </span>
           <span className="text-xs font-mono text-[#5C616B] tracking-widest uppercase">
-            SYSTEM.STATUS — {profile.status}
+            SYSTEM.STATUS ~{profile.status}
           </span>
         </div>
 
@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
           Have a system worth building?
         </h2>
         <p className="text-[#8B8F98] text-base sm:text-lg max-w-xl mb-12">
-          Open to full-time roles and freelance work. Email is fastest — I usually reply within 24 hours.
+          Open to full time roles and freelance work. Email is fastest I usually reply within 24 hours.
         </p>
 
         <div className="grid sm:grid-cols-3 gap-4">
