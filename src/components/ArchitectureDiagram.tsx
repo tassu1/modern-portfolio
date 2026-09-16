@@ -6,7 +6,6 @@ interface ArchitectureDiagramProps {
   annotation?: string;
 }
 
-// Fixed, constant across every project — this is what keeps all diagrams the same visual scale
 const NODE_WIDTH = 132;
 const NODE_HEIGHT = 60;
 const COLUMN_GAP = 56;
@@ -56,7 +55,6 @@ const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ stages, annot
 
   return (
     <div className="rounded-xl border border-[#1F232B] bg-[#0D0F13] p-4 sm:p-6 overflow-x-auto">
-      {/* Fixed pixel size, centered, only shrinks on narrow viewports — never stretched to fill */}
       <svg
         viewBox={`0 0 ${width} ${height}`}
         width={width}
@@ -130,7 +128,7 @@ const NodeShape: React.FC<{ node: ArchNode; x: number; y: number; width: number;
         <rect width={width} height={height} rx={10} fill={BG} stroke={BORDER} strokeWidth={1.5} />
       )}
 
-      {/* foreignObject wraps text and clips overflow — a long note can never bleed into a neighboring shape */}
+    
       <foreignObject x={4} y={kind === 'client' ? 14 : 4} width={width - 8} height={height - (kind === 'client' ? 18 : 8)}>
         <div
           style={{
