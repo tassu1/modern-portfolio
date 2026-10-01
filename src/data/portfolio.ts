@@ -1,6 +1,3 @@
-// Single source of truth for all portfolio content.
-// Every fact here traces back to the original resume/portfolio or project README.
-// Portfolio-level engineering framing is used only where it reflects the documented architecture.
 
 export const profile = {
   name: 'Md Tahseen Alam',
