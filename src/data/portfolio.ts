@@ -23,7 +23,7 @@ export const profile = {
     { label: 'Internships', value: '02' },
     { label: 'Projects Built', value: '07+' },
     { label: 'Live Products', value: '05' },
-    { label: 'DSA Problems', value: '300+' },
+    { label: 'DSA Problems', value: '350+' },
   ],
 };
 
@@ -502,7 +502,7 @@ export const experience = [
 ];
 
 export const beyondResume =
-  'Branch Topper in Diploma in Computer Science Engineering (82.17%), alongside 300+ DSA problems solved across LeetCode and other platforms.';
+  'Branch Topper in Diploma in Computer Science Engineering (82.17%), alongside 350+ DSA problems solved across LeetCode and other platforms.';
 
 export const currentlyExploring = [
   'Backend Architecture',
@@ -514,5 +514,5 @@ export const currentlyExploring = [
 export const aboutText = [
   'I’m a backend leaning full stack developer who’s drawn to the parts of a system most people never see how a request gets authenticated, how a job gets queued and retried, how data stays isolated between tenants on shared infrastructure.',
   'Most of what I’ve built came out of real constraints: a multi school platform that had to keep five schools’ data apart, a queue backed AI interview tool that couldn’t afford to block on generation, a document generator that had to get multi step AI output right. I like the problems where the happy path is easy and the edge cases are where the real engineering happens.',
-  'Outside of product work, I spend time on algorithmic problem solving 300+ problems across LeetCode and other platforms because clearer problem solving tends to translate directly into cleaner system design.',
+  'Outside of product work, I spend time on algorithmic problem solving 350+ problems across LeetCode and other platforms because clearer problem solving tends to translate directly into cleaner system design.',
 ];

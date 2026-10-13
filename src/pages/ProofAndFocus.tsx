@@ -5,7 +5,7 @@ import { profile, currentlyExploring } from '../data/portfolio';
 const ProofAndFocus: React.FC = () => {
   const proof = [
     { name: 'GitHub', sub: 'Repositories · Source Code · Projects', icon: <Github size={18} />, link: profile.github },
-    { name: 'LeetCode', sub: '300+ problems solved', icon: <Code size={18} />, link: profile.leetcode },
+    { name: 'LeetCode', sub: '350+ problems solved', icon: <Code size={18} />, link: profile.leetcode },
     { name: 'LinkedIn', sub: 'Professional profile', icon: <Linkedin size={18} />, link: profile.linkedin },
     { name: 'Resume', sub: 'Experience · Education · Skills', icon: <FileText size={18} />, link: profile.resumeUrl },
   ];
